@@ -29,7 +29,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-
     filter: blur(5px);
     visibility: hidden;
     opacity: 0; /* All images start invisible */
