@@ -1,0 +1,45 @@
+/*
+  CSS for the Flashing Image Hover Effect
+*/
+
+.sc-custom--wm-popup--container {
+  display: none;
+}
+
+/* Show Only on desktop */
+@media (min-width: 1024px) {
+  /* The single container is positioned by GSAP and starts hidden.
+   It has a fixed size to contain the images. */
+  .sc-custom--wm-popup--container {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 360px;
+    height: 360px;
+    pointer-events: none; /* Allows clicking "through" the element */
+    z-index: 9999;
+    mix-blend-mode: overlay;
+  }
+
+  /* Individual images are stacked directly on top of each other */
+  .custom-hover-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    filter: blur(5px);
+    visibility: hidden;
+    opacity: 0; /* All images start invisible */
+    transition: filter 0.1s ease-in-out; /* Controls the flash/fade speed */
+  }
+
+  /* The active image is the only one that becomes visible */
+  .custom-hover-image.active {
+    visibility: visible;
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
